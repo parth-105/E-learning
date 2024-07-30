@@ -10,7 +10,7 @@ const videoSchema = new mongoose.Schema({
         required: [true, "Please provide a subject"],
         
     },
-    Instructor: {
+    instructor: {
         type: Schema.Types.ObjectId,
         required: [true, "Please provide a student id"],
         ref:'Instructor'
@@ -30,6 +30,6 @@ const videoSchema = new mongoose.Schema({
    
 })
 
-const Video = mongoose.models.Video || mongoose.model("video", videoSchema);
+const Video = mongoose.models.Video || mongoose.model("Video", videoSchema);
 
 export default Video;

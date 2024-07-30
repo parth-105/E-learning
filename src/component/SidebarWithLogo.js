@@ -27,15 +27,26 @@ import {
   CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import axios from "axios";
+import useLocalStorage from "@/helpers/useLocalStorage.js";
+import useUserRedirect from "@/helpers/useUserRedirect";
+import useLogout from "@/helpers/useLogout";
  
 export function SidebarWithLogo() {
   const [open, setOpen] = React.useState(0);
   const [openAlert, setOpenAlert] = React.useState(true);
+  const [data, setData] = useLocalStorage('e-learning-user', '');
  
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
  
+  const logout = async() =>{
+    const response = await axios.get('/api/users/logout');
+    console.log("logout",response.data)
+    useLogout();
+  }
+
   return (
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 flex items-center gap-4 p-4">
@@ -94,7 +105,9 @@ export function SidebarWithLogo() {
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
+          <button onClick={logout} >
           Log Out
+          </button>
         </ListItem>
       </List>
      

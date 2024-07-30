@@ -24,7 +24,7 @@ const instructorSchema = new mongoose.Schema({
         default:'/default.png'
     },
     video:{
-        type:[String]
+        type:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Video' }]
     },
     isInstructor: {
         type: Boolean,

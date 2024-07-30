@@ -28,7 +28,7 @@ import {
   Bars2Icon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
- 
+
 // profile menu component
 const profileMenuItems = [
   {
@@ -48,12 +48,12 @@ const profileMenuItems = [
     icon: PowerIcon,
   },
 ];
- 
+
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
+
   const closeMenu = () => setIsMenuOpen(false);
- 
+
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -71,9 +71,8 @@ function ProfileMenu() {
           />
           <ChevronDownIcon
             strokeWidth={2.5}
-            className={`h-3 w-3 transition-transform ${
-              isMenuOpen ? "rotate-180" : ""
-            }`}
+            className={`h-3 w-3 transition-transform ${isMenuOpen ? "rotate-180" : ""
+              }`}
           />
         </Button>
       </MenuHandler>
@@ -84,11 +83,10 @@ function ProfileMenu() {
             <MenuItem
               key={label}
               onClick={closeMenu}
-              className={`flex items-center gap-2 rounded ${
-                isLastItem
+              className={`flex items-center gap-2 rounded ${isLastItem
                   ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
                   : ""
-              }`}
+                }`}
             >
               {React.createElement(icon, {
                 className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
@@ -109,20 +107,20 @@ function ProfileMenu() {
     </Menu>
   );
 }
- 
+
 // nav list menu
 
- 
- 
+
+
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
- 
- 
+
+
+
   return (
     <React.Fragment>
       <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
-       
+
         <MenuList className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid">
           <Card
             color="blue"
@@ -132,14 +130,14 @@ function NavListMenu() {
           >
             <RocketLaunchIcon strokeWidth={1} className="h-28 w-28" />
           </Card>
-       
+
         </MenuList>
       </Menu>
-    
+
     </React.Fragment>
   );
 }
- 
+
 // nav list component
 const navListItems = [
   {
@@ -155,7 +153,7 @@ const navListItems = [
     icon: CodeBracketSquareIcon,
   },
 ];
- 
+
 function NavList() {
   return (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
@@ -163,8 +161,7 @@ function NavList() {
       {navListItems.map(({ label, icon }, key) => (
         <Typography
           key={label}
-          as="a"
-          href="#"
+           as="span"
           variant="small"
           color="gray"
           className="font-medium text-blue-gray-500"
@@ -178,28 +175,28 @@ function NavList() {
     </ul>
   );
 }
- 
+
 export function ComplexNavbar() {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
- 
+
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
- 
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setIsNavOpen(false),
     );
   }, []);
- 
+
   return (
     <Navbar className="mx-auto max-w-screen-xl p-2 lg:rounded-full lg:pl-6">
       <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
-          as="a"
-          href="#"
+          as="span"
+          variant="small"
           className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
         >
-         <Link href='/Admin' >E-learning</Link> 
+          <Link href='/Admin' >E-learning</Link>
         </Typography>
         <div className="hidden lg:block">
           <NavList />
@@ -213,8 +210,8 @@ export function ComplexNavbar() {
         >
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
- 
-       
+
+
         <ProfileMenu />
       </div>
       <Collapse open={isNavOpen} className="overflow-scroll">

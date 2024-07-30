@@ -38,7 +38,7 @@ import Link from "next/link";
         try {
             setLoading(true);
             const response = await axios.post("/api/users/login", user);
-            localStorage.setItem('e-learning-user', JSON.stringify(user));
+            localStorage.setItem('e-learning-user', JSON.stringify(response.data.Login));
             console.log("Login success", response.data.Login.isInstructor);
            
           if(response.data.Login.isInstructor) 
