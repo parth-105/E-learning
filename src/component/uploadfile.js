@@ -15,6 +15,7 @@ const MyComponent = () => {
     if (selectedFile) {
       const url = await uploadFileAndGetUrl(selectedFile);
       console.log('Download URL:', url);
+      setSelectedFile(null)
     }
   };
 

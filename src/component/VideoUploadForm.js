@@ -15,7 +15,8 @@ const VideoUploadForm = () => {
   const [videoDescription, setVideoDescription] = useState('');
   const [loading ,setloading]=useState(false)
   const [data, setData] = useLocalStorage('e-learning-user', '');
-
+  const [thumbnailurl,setthumbnailurl] = useState('')
+  const [videoFileurl,setvideoFileurl] = useState('')
   const handleThumbnailChange = (e) => {
     setThumbnail(e.target.files[0]);
     //console.log("data",data)

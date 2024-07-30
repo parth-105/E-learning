@@ -1,21 +1,19 @@
-// useLogout.ts
+// Logout.js
+"use client"
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-function useLogout() {
+export default function Logout() {
     const router = useRouter();
 
     useEffect(() => {
         // Remove user data from local storage
+        console.log("log oit")
         localStorage.removeItem('e-learning-user');
-
-        // Redirect to the login page
-        router.replace('/login');
+        router.push('/login');
     }, []);
 
     // You can also add additional cleanup logic if needed
 
-    return null; // Custom hooks must return something
+    return null; // Function components must return something
 }
-
-export default useLogout;

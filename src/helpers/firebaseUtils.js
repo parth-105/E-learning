@@ -7,7 +7,7 @@ import { db, storage} from '@/firebase'
 export const uploadFileAndGetUrl = async (file) => {
   try {
   
-    const storageRef = ref(storage, 'uploads'); 
+    const storageRef = ref(storage, `uploads/${Date.now()}`); 
 
     // Upload the file
     await uploadBytes(storageRef, file);

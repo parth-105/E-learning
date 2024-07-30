@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   Typography,
@@ -30,7 +30,7 @@ import Link from "next/link";
 import axios from "axios";
 import useLocalStorage from "@/helpers/useLocalStorage.js";
 import useUserRedirect from "@/helpers/useUserRedirect";
-import useLogout from "@/helpers/useLogout";
+import Logout from "@/helpers/Logout";
  
 export function SidebarWithLogo() {
   const [open, setOpen] = React.useState(0);
@@ -44,8 +44,10 @@ export function SidebarWithLogo() {
   const logout = async() =>{
     const response = await axios.get('/api/users/logout');
     console.log("logout",response.data)
-    useLogout();
+       
   }
+
+
 
   return (
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">

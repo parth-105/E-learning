@@ -1,7 +1,7 @@
 // useUserRedirect.js
 import { useEffect } from 'react';
 // Correct import
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 function useUserRedirect() {
   const router = useRouter();

@@ -5,10 +5,14 @@ import Search from '@/component/Search'
 import Sidebar from '@/component/sidebar'
 import { SidebarWithLogo } from '@/component/SidebarWithLogo'
 import MyComponent from '@/component/uploadfile'
+import useUserRedirect from '@/helpers/useUserRedirect'
 import { Button, Input } from '@material-tailwind/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function page() {
+
+   
+
   return (
 
     <div className="flex h-screen">
